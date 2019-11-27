@@ -18,7 +18,7 @@ type Props = {
 
 const AIExperience = ({ long, ai }: Props) => (
   <>
-    <SectionHeader text='Data Science and Artificial Intelligence Experience' />
+    <SectionHeader text='Research and Data Science Experience' />
     <Experience
       title='Research in Adversarial Robustness'
       startDate='April 2019'
@@ -28,8 +28,8 @@ const AIExperience = ({ long, ai }: Props) => (
       <ListItem>Invented the ReColorAdv attack, which when combined with other
         attacks leads to the strongest existing attack even after adversarial
         training. Paper accepted to NeurIPS 2019.</ListItem>
-      <ListItem>Investigating surrogate loss functions for improving
-        adversarial robustness of neural networks.</ListItem>
+      <ListItem>Investigating adversarial robustness with an abstain option.
+        Paper under review.</ListItem>
     </Experience>
     <Experience
       title='Research at Max Planck Institute for Intelligent Systems'
@@ -42,7 +42,7 @@ const AIExperience = ({ long, ai }: Props) => (
         of human faces.</ListItem>
       <ListItem>Used deep learning to model the relationship between speech
         and facial motion.</ListItem>
-      <ListItem>Coauthored paper presented at CVPR'19, a leading computer
+      <ListItem>Coauthored paper presented at CVPR 2019, a leading computer
         science conference.</ListItem>
     </Experience>
     <Experience
@@ -110,14 +110,13 @@ const SoftwareExperience = ({ long }: Props) => (
   <>
     <SectionHeader text='Software Development Experience' />
     <Experience
-      title='Data Scientist and Web Developer, Builda.co'
-      startDate='November 2016'
+      title='Mobile Developer, Blip Labs'
+      startDate='November 2018'
     >
-      <ListItem>Building an analysis pipeline for data from Fortune 500
-        companies using Apache Spark.</ListItem>
-      <ListItem>Created a web-based mentoring platform for entrepreneurs using
-        Django, Bootstrap, jQuery and APIs from LinkedIn,
-        Braintree, and Office365.</ListItem>
+      <ListItem>Building an app to streamline the bill payment process.
+        </ListItem>
+      <ListItem>Using React Native, Django, and APIs from Plaid, Finovera,
+        and Q2.</ListItem>
     </Experience>
     <Experience
       title='App Developer, Why Weight?'
@@ -130,6 +129,26 @@ const SoftwareExperience = ({ long }: Props) => (
         company’s life coaches.</ListItem>
       <ListItem>Writing the app in React Native with a Django backend hosted
         in AWS.</ListItem>
+    </Experience>
+    <Experience
+      title='Data Scientist and Web Developer, Builda.co'
+      startDate='November 2016'
+      endDate='November 2019'
+    >
+      <ListItem>Built an analysis and visualization pipeline for data from
+        Fortune 500 companies using Apache Spark.</ListItem>
+      <ListItem>Created a web-based mentoring platform using
+        Django, Bootstrap, jQuery and APIs from LinkedIn,
+        Braintree, and Office365.</ListItem>
+    </Experience>
+    <Experience
+      title='Web Developer, WorkStrive'
+      startDate='March 2019'
+      endDate='July 2019'
+    >
+      <ListItem>Developed a website and platform that turns gyms and yoga
+        studios into coworking spaces during the day (see workstrive.com).
+      </ListItem>
     </Experience>
     <Experience
       title='Insider Threat Analysis Tool'
@@ -149,10 +168,10 @@ const SoftwareExperience = ({ long }: Props) => (
       startDate='November 2014'
       endDate='May 2018'
     >
-      <ListItem>Creating online dialogue platform for Israelis and
+      <ListItem>Created online dialogue platform for Israelis and
           Palestinians.</ListItem>
       <ListItem>Built website using Django, Bootstrap, jQuery, Gulp, and other
-        technologies (see aa.zetaware.net).</ListItem>
+        technologies.</ListItem>
     </Experience>}
     {long &&
     <Experience
@@ -172,11 +191,6 @@ const SoftwareExperience = ({ long }: Props) => (
       <ListItem>Designed and built a website in WordPress for a small company
         in Providence, RI.</ListItem>
     </Experience>}
-    {long &&
-    <Blurb title={'Other websites I\'ve designed/built'}>
-      cs.brown.edu/people/bjm, pmbloch.com, builda.ai, www.geteasybill.com,
-      workstrive.com
-    </Blurb>}
     {!long &&
     <Experience
       title='Other Freelance Software Development Work'
@@ -197,7 +211,7 @@ const OtherExperience = () => (
       startDate='January 2018'
       endDate='May 2018'
     >
-      <ListItem>Led a discussion section for Object-Oriented
+      <ListItem>Taught a discussion section for Object-Oriented
         Programming I.</ListItem>
     </Experience>
     <Experience
@@ -282,7 +296,7 @@ const Awards = ({ long }: Props) => (
     </Blurb>
     <Blurb title='Gemstone Honors Program Most Valuable Team Member'>
       selected as the student who contributed most to his/her research team out
-      of all students in my honors program.
+      of all 100+ students in my honors program.
     </Blurb>
     <Blurb title='Banneker/Key Scholarship'>
       the University of Maryland's most prestigious scholarship.
@@ -292,7 +306,13 @@ const Awards = ({ long }: Props) => (
 
 const Publications = () => (
   <>
-    <SectionHeader text='Publications' />
+    <SectionHeader text='Publications and Preprints' />
+    <Publication
+      title='Playing it Safe: Adversarial Robustness with an Abstain Option'
+      authors={['Cassidy Laidlaw', 'Soheil Feizi']}
+      venue='arXiv preprint'
+      url='https://arxiv.org/abs/1911.11253'
+    />
     <Publication
       title='Functional Adversarial Attacks'
       authors={['Cassidy Laidlaw', 'Soheil Feizi']}
@@ -302,8 +322,8 @@ const Publications = () => (
     <Publication
       title='Capture, Learning, and Synthesis of 3D Speaking Styles'
       authors={[
-        'Daniel Cudeiro*',
-        'Timo Bolkart*',
+        'Daniel Cudeiro',
+        'Timo Bolkart',
         'Cassidy Laidlaw',
         'Anurag Ranjan',
         'Michael J. Black',
@@ -388,7 +408,7 @@ export default function Resume(props: Props) {
           <Publications {...props} />
         </>}
       {long && <OtherExperience {...props} />}
-      <Skills {...props} />
+      {!ai && <Skills {...props} />}
       <Awards {...props} />
     </Page>
   );
