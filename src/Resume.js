@@ -246,8 +246,8 @@ const Education = ({ long }: Props) => (
       startDate='2014'
       endDate='2018'
     >
-      <ListItem>Computer science/math double degree, Middle East studies
-        minor, GPA 4.00.</ListItem>
+      <ListItem>Double degree in computer science and math, Middle East studies
+        minor, GPA 4.00/4.</ListItem>
       <ListItem>Selected as one of top five graduating seniors for
         “academic distinction, exemplary character, and service to the campus
         or public communities.”</ListItem>
