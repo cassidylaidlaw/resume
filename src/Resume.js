@@ -18,18 +18,19 @@ type Props = {
 
 const AIExperience = ({ long, ai }: Props) => (
   <>
-    <SectionHeader text='Research and Data Science Experience' />
+    <SectionHeader text='Research Experience' />
     <Experience
       title='Research in Adversarial Robustness'
       startDate='April 2019'
     >
-      <ListItem>Developed a new framework for adversarial attacks using
-        a functional threat model.</ListItem>
+      <ListItem>Developed the first adversarial defense that generalizes to
+        unseen threat models, perceptual adversarial training (PAT). Paper
+        sunder review.</ListItem>
       <ListItem>Invented the ReColorAdv attack, which when combined with other
         attacks leads to the strongest existing attack even after adversarial
-        training. Paper accepted to NeurIPS 2019.</ListItem>
-      <ListItem>Investigating adversarial robustness with an abstain option.
-        Paper under review.</ListItem>
+        training. Paper presented at NeurIPS 2019.</ListItem>
+      <ListItem>Investigated adversarial robustness with an abstain
+        option.</ListItem>
     </Experience>
     <Experience
       title='Research at Max Planck Institute for Intelligent Systems'
@@ -45,6 +46,7 @@ const AIExperience = ({ long, ai }: Props) => (
       <ListItem>Coauthored paper presented at CVPR 2019, a leading computer
         science conference.</ListItem>
     </Experience>
+    {long &&
     <Experience
       title='Intern, Booz Allen Hamilton Inc: “Rumor Has It”'
       startDate='January 2016'
@@ -55,8 +57,8 @@ const AIExperience = ({ long, ai }: Props) => (
       <ListItem>Used cutting edge data mining, machine learning, and natural
         language processing algorithms—some of which I designed myself—to
         analyze real-time Twitter data in a unique manner.</ListItem>
-    </Experience>
-    {(ai || long) &&
+    </Experience>}
+    {(long) &&
     <Experience
       title='Group Research in Automatic Bias Detection'
       startDate='September 2015'
@@ -69,6 +71,7 @@ const AIExperience = ({ long, ai }: Props) => (
       <ListItem>Received most valuable team member award (selected out of
         all students in honors program).</ListItem>
     </Experience>}
+    {(long || ai) &&
     <Experience
       title='Research in Cross-Lingual Connotation'
       startDate='January 2016'
@@ -78,7 +81,8 @@ const AIExperience = ({ long, ai }: Props) => (
         with Prof. Marine Carpuat at the U. of Maryland.</ListItem>
       <ListItem>Worked with Google teraword n-grams and scraped news sites
         in multiple languages.</ListItem>
-    </Experience>
+    </Experience>}
+    {long &&
     <Experience
       title='Intern, Booz Allen Hamilton Inc: “Twitter Polygraph”'
       startDate='June 2015'
@@ -90,6 +94,7 @@ const AIExperience = ({ long, ai }: Props) => (
         statistics, natural language processing, and machine
         learning.</ListItem>
     </Experience>
+    }
     {long &&
     <Experience
       title='Research in Automatic Summarization of Scientific Research'
@@ -112,6 +117,7 @@ const SoftwareExperience = ({ long }: Props) => (
     <Experience
       title='Mobile Developer, Blip Labs'
       startDate='November 2018'
+      endDate='July 2020'
     >
       <ListItem>Building an app to streamline the bill payment process.
         </ListItem>
@@ -121,6 +127,7 @@ const SoftwareExperience = ({ long }: Props) => (
     <Experience
       title='App Developer, Why Weight?'
       startDate='March 2018'
+      endDate='August 2020'
     >
       <ListItem>Building an app to help clients of Why Weight, a weight loss
         and life coaching company.</ListItem>
@@ -195,6 +202,7 @@ const SoftwareExperience = ({ long }: Props) => (
     <Experience
       title='Other Freelance Software Development Work'
       startDate='June 2014'
+      endDate='August 2020'
     >
       <ListItem>Including data science, mobile apps, and web
         development.</ListItem>
@@ -242,12 +250,22 @@ const Education = ({ long }: Props) => (
   <>
     <SectionHeader text='Education' />
     <Experience
+      title='University of California, Berkeley'
+      startDate='2020'
+    >
+      <ListItem>Ph.D. in computer science, focusing on human-AI cooperation,
+        learning human preferences, and robustness in machine
+        learning.</ListItem>
+      <ListItem>Supported by a National Defense Science and Engineering
+        Graduate (NDSEG) Fellowship.</ListItem>
+    </Experience>
+    <Experience
       title='University of Maryland, College Park'
       startDate='2014'
       endDate='2018'
     >
-      <ListItem>Double degree in computer science and math, Middle East studies
-        minor, GPA 4.00/4.</ListItem>
+      <ListItem>Double B.S. in computer science and math, Middle East
+        studies minor, GPA 4.00/4.</ListItem>
       <ListItem>Selected as one of top five graduating seniors for
         “academic distinction, exemplary character, and service to the campus
         or public communities.”</ListItem>
@@ -288,15 +306,12 @@ const Skills = ({}) => (
 const Awards = ({ long }: Props) => (
   <>
     <SectionHeader text='Honors and Awards' />
+    <Blurb title='National Defense Science and Engineering Graduate (NDSEG) Fellowship' />
     <Blurb title='University of Maryland University Medal Finalist'>
       selected as one of five finalists for the highest honor that the
       university can bestow on an undergraduate student based on the criteria
       of “academic distinction, exemplary character, and service to the
       campus or public communities.”
-    </Blurb>
-    <Blurb title='Gemstone Honors Program Most Valuable Team Member'>
-      selected as the student who contributed most to his/her research team out
-      of all 100+ students in my honors program.
     </Blurb>
     <Blurb title='Banneker/Key Scholarship'>
       the University of Maryland's most prestigious scholarship.
@@ -307,6 +322,12 @@ const Awards = ({ long }: Props) => (
 const Publications = () => (
   <>
     <SectionHeader text='Publications and Preprints' />
+    <Publication
+      title='Perceptual Adversarial Robustness: Defense Against Unseen Threat Models'
+      authors={['Cassidy Laidlaw', 'Sahil Singla', 'Soheil Feizi']}
+      venue='arXiv preprint'
+      url='https://arxiv.org/abs/2006.12655'
+    />
     <Publication
       title='Playing it Safe: Adversarial Robustness with an Abstain Option'
       authors={['Cassidy Laidlaw', 'Soheil Feizi']}
