@@ -22,10 +22,11 @@ const AIExperience = ({ long, ai }: Props) => (
     <Experience
       title='Research in Adversarial Robustness'
       startDate='April 2019'
+      endDate='September 2020'
     >
       <ListItem>Developed the first adversarial defense that generalizes to
         unseen threat models, perceptual adversarial training (PAT). Paper
-        sunder review.</ListItem>
+        presented at ICLR 2021.</ListItem>
       <ListItem>Invented the ReColorAdv attack, which when combined with other
         attacks leads to the strongest existing attack even after adversarial
         training. Paper presented at NeurIPS 2019.</ListItem>
@@ -108,6 +109,39 @@ const AIExperience = ({ long, ai }: Props) => (
         Engineering Fair in May 2014.</ListItem>
     </Experience>
     }
+  </>
+);
+
+const ResearchExperience = ({ long, ai }: Props) => (
+  <>
+    <SectionHeader text='Experience' />
+    <Experience
+      title='Post-Undergraduate Researcher'
+      subtitle='University of Maryland'
+      startDate='April 2019'
+      endDate='September 2020'
+    >
+    <ListItem>Research with Soheil Feizi on adversarial attacks and defenses
+      for nonstandard threat models, leading to papers at NeurIPS 2019
+      and ICLR 2021.</ListItem>
+    </Experience>
+    <Experience
+      title='Research Intern'
+      subtitle='Max Planck Institute for Intelligent Systems'
+      startDate='May 2017'
+      endDate='January 2018'
+    >
+      <ListItem>Research with Michael Black on statistical face models,
+        leading to a paper at CVPR 2019.</ListItem>
+    </Experience>
+    <Experience
+      title='Freelance Software Developer'
+      startDate='June 2014'
+      endDate='August 2020'
+    >
+      <ListItem>Built web, mobile, and data science solutions for startups,
+        large corporations, and government.</ListItem>
+    </Experience>
   </>
 );
 
@@ -210,6 +244,20 @@ const SoftwareExperience = ({ long }: Props) => (
   </>
 );
 
+const ServiceExperience = () => (
+  <>
+    <SectionHeader text='Service and Outreach' />
+    <Blurb title='Reviewing'>
+      NeurIPS (2021), ICLR (2022), and the ICML Workshop on Uncertainty and
+      Robustness in Deep Learning (2021).
+    </Blurb>
+    <Blurb title='AI4ALL Project Leader'>
+      led a group of high school students through a three-day AI project
+      during this 2021 summer camp.
+    </Blurb>
+  </>
+);
+
 const OtherExperience = () => (
   <>
     <SectionHeader text='Other Experience and Involvement' />
@@ -253,8 +301,8 @@ const Education = ({ long }: Props) => (
       title='University of California, Berkeley'
       startDate='2020'
     >
-      <ListItem>Ph.D. in computer science, focusing on human-AI cooperation,
-        learning human preferences, and robustness in machine
+      <ListItem>Ph.D. in computer science advised by Stuart Russell, focusing on
+        human-AI cooperation, learning human preferences, and robustness in machine
         learning.</ListItem>
       <ListItem>Supported by a National Defense Science and Engineering
         Graduate (NDSEG) Fellowship.</ListItem>
@@ -323,16 +371,21 @@ const Publications = () => (
   <>
     <SectionHeader text='Publications and Preprints' />
     <Publication
-      title='Perceptual Adversarial Robustness: Defense Against Unseen Threat Models'
-      authors={['Cassidy Laidlaw', 'Sahil Singla', 'Soheil Feizi']}
-      venue='arXiv preprint'
+      title='The Boltzmann Policy Distribution: Accounting for Systematic Suboptimality in Human Models'
+      authors={['Cassidy Laidlaw', 'Anca Dragan']}
+      venue='Under Submission'
+    />
+    <Publication
+      title='Learning the Preferences of Uncertain Humans with Inverse Decision Theory'
+      authors={['Cassidy Laidlaw', 'Stuart Russell']}
+      venue='NeurIPS 2021 (spotlight, given to ~12% of accepted papers)'
       url='https://arxiv.org/abs/2006.12655'
     />
     <Publication
-      title='Playing it Safe: Adversarial Robustness with an Abstain Option'
-      authors={['Cassidy Laidlaw', 'Soheil Feizi']}
-      venue='arXiv preprint'
-      url='https://arxiv.org/abs/1911.11253'
+      title='Perceptual Adversarial Robustness: Defense Against Unseen Threat Models'
+      authors={['Cassidy Laidlaw', 'Sahil Singla', 'Soheil Feizi']}
+      venue='ICLR 2021'
+      url='https://arxiv.org/abs/2006.12655'
     />
     <Publication
       title='Functional Adversarial Attacks'
@@ -351,6 +404,12 @@ const Publications = () => (
       ]}
       venue='CVPR 2019'
       url='https://voca.is.tue.mpg.de/'
+    />
+    <Publication
+      title='Playing it Safe: Adversarial Robustness with an Abstain Option'
+      authors={['Cassidy Laidlaw', 'Soheil Feizi']}
+      venue='arXiv preprint (2019)'
+      url='https://arxiv.org/abs/1911.11253'
     />
   </>
 );
@@ -406,32 +465,25 @@ export default function Resume(props: Props) {
   }
 
   return (
+    <>
     <Page {...props} style={styles.page}>
       <Header
         name='Cassidy Laidlaw'
-        email='laidlaw.cassidy@gmail.com'
+        email='cassidy_laidlaw@berkeley.edu'
         phoneNumber={phoneNumber || ''}
         website='cassidylaidlaw.com'
         address={address || ''}
         excludePersonalInformation={!personal}
       />
       <Education {...props} />
-      {long && <Courses {...props} />}
-      {ai ?
-        <>
-          <AIExperience {...props} />
-          <Publications {...props} />
-          <SoftwareExperience {...props} />
-        </> :
-        <>
-          <SoftwareExperience {...props} />
-          <AIExperience {...props} />
-          <Publications {...props} />
-        </>}
-      {long && <OtherExperience {...props} />}
-      {!ai && <Skills {...props} />}
+      <Publications />
+      <ResearchExperience {...props} />
+      <ServiceExperience {...props} />
+    </Page>
+    <Page {...props} style={styles.page}>
       <Awards {...props} />
     </Page>
+    </>
   );
 }
 
