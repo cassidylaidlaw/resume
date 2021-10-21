@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactPDF, { Text, Document, Font, Page, StyleSheet, Image,
   View } from '@react-pdf/renderer';
+import theme from './theme';
 import Header from './Header';
 import SectionHeader from './SectionHeader';
 import Experience from './Experience';
@@ -249,7 +250,9 @@ const ServiceExperience = () => (
     <SectionHeader text='Service and Outreach' />
     <Blurb title='Reviewing'>
       NeurIPS (2021), ICLR (2022), and the ICML Workshop on Uncertainty and
-      Robustness in Deep Learning (2021).
+      Robustness in Deep Learning (2021). Received{' '}
+      <Text style={styles.emph}>outstanding reviewer award (top 8%)</Text>{' '}
+      for NeurIPS 2021.
     </Blurb>
     <Blurb title='AI4ALL Project Leader'>
       led a group of high school students through a three-day AI project
@@ -495,5 +498,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+  },
+  emph: {
+    ...theme.fonts.detail.bold,
   },
 });
