@@ -379,10 +379,10 @@ const Publications = () => (
       venue='Under Submission'
     />
     <Publication
-      title='Learning the Preferences of Uncertain Humans with Inverse Decision Theory'
+      title='Uncertain Decisions Facilitate Better Preference Learning'
       authors={['Cassidy Laidlaw', 'Stuart Russell']}
       venue='NeurIPS 2021 (spotlight, given to ~12% of accepted papers)'
-      url='https://arxiv.org/abs/2006.12655'
+      url='https://arxiv.org/abs/2106.10394'
     />
     <Publication
       title='Perceptual Adversarial Robustness: Defense Against Unseen Threat Models'
