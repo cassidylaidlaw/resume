@@ -382,7 +382,7 @@ const Publications = () => (
       title='Uncertain Decisions Facilitate Better Preference Learning'
       authors={['Cassidy Laidlaw', 'Stuart Russell']}
       venue='NeurIPS 2021 (spotlight, given to ~12% of accepted papers)'
-      url='https://arxiv.org/abs/2106.10394'
+      url='https://papers.nips.cc/paper/2021/hash/7f141cf8e7136ce8701dc6636c2a6fe4-Abstract.html'
     />
     <Publication
       title='Perceptual Adversarial Robustness: Defense Against Unseen Threat Models'
