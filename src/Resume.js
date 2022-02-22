@@ -376,7 +376,8 @@ const Publications = () => (
     <Publication
       title='The Boltzmann Policy Distribution: Accounting for Systematic Suboptimality in Human Models'
       authors={['Cassidy Laidlaw', 'Anca Dragan']}
-      venue='Under Submission'
+      venue='ICLR 2022'
+      url='https://openreview.net/forum?id=_l_QjPGN5ye'
     />
     <Publication
       title='Uncertain Decisions Facilitate Better Preference Learning'
