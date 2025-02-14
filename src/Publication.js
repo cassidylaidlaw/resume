@@ -37,6 +37,19 @@ export default function Experience(props: Props) {
     }
   });
 
+  let venue: Array<React.Node> | string = props.venue;
+  ["oral", "spotlight"].forEach((distinction: string) => {
+    if (typeof venue === "string" && venue.endsWith(` (${distinction})`)) {
+      venue = venue.replace(` (${distinction})`, '');
+      venue = [
+        venue,
+        <Text style={styles.publicationDistinction} key={distinction}>
+          {` (${distinction})`}
+        </Text>,
+      ];
+    }
+  });
+
   return (
     <View style={styles.container} wrap={false}>
       <Text style={theme.fonts.detail.regular}>
@@ -49,7 +62,7 @@ export default function Experience(props: Props) {
           {props.title}
         </Link>
         {'. '}
-        <Text style={styles.venue}>{props.venue}</Text>.
+        <Text style={styles.venue}>{venue}</Text>.
       </Text>
     </View>
   );
@@ -61,8 +74,12 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.unit,
   },
   ownAuthor: {
+    fontFamily: 'Open Sans Bold',
   },
   venue: {
     fontFamily: 'Open Sans Italic',
+  },
+  publicationDistinction: {
+    fontFamily: 'Open Sans Bold Italic',
   },
 });

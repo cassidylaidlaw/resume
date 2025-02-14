@@ -249,14 +249,13 @@ const ServiceExperience = () => (
   <>
     <SectionHeader text='Service and Outreach' />
     <Blurb title='Reviewing'>
-      NeurIPS (2021), ICLR (2022), and the ICML Workshop on Uncertainty and
-      Robustness in Deep Learning (2021). Received{' '}
+      NeurIPS (2021-2024), ICLR (2022-2025), ICML (2023-2025), and various workshops. Received{' '}
       <Text style={styles.emph}>outstanding reviewer award (top 8%)</Text>{' '}
       for NeurIPS 2021.
     </Blurb>
     <Blurb title='AI4ALL Project Leader'>
       led a group of high school students through a three-day AI project
-      during this 2021 summer camp.
+      during this 2021 summer camp. Returned in 2022 to teach Python at the same camp.
     </Blurb>
   </>
 );
@@ -304,10 +303,9 @@ const Education = ({ long }: Props) => (
       title='University of California, Berkeley'
       startDate='2020'
     >
-      <ListItem>Ph.D. in computer science advised by Stuart Russell, focusing on
-        human-AI cooperation, learning human preferences, and robustness in machine
-        learning.</ListItem>
-      <ListItem>Supported by a National Defense Science and Engineering
+      <ListItem>Ph.D. in computer science advised by Stuart Russell and Anca Dragan, focusing on
+        reinforcement learning theory, human-AI cooperation, and reward hacking.</ListItem>
+      <ListItem>Supported by an Open Philanthropy AI Fellowship and a National Defense Science and Engineering
         Graduate (NDSEG) Fellowship.</ListItem>
     </Experience>
     <Experience
@@ -357,7 +355,10 @@ const Skills = ({}) => (
 const Awards = ({ long }: Props) => (
   <>
     <SectionHeader text='Honors and Awards' />
+    <Blurb title='Open Philanthropy AI Fellowship' />
     <Blurb title='National Defense Science and Engineering Graduate (NDSEG) Fellowship' />
+    <Blurb title='Best Paper' noColon> at the 2023 ICML Workshop on New Frontiers in Learning, Control, and Dynamical Systems.</Blurb>
+    <Blurb title='Best Paper Honorable Mention' noColon> at the 2023 NeurIPS Workshop on Instruction Tuning and Instruction Following.</Blurb>
     <Blurb title='University of Maryland University Medal Finalist'>
       selected as one of five finalists for the highest honor that the
       university can bestow on an undergraduate student based on the criteria
@@ -374,6 +375,36 @@ const Publications = () => (
   <>
     <SectionHeader text='Publications and Preprints' />
     <Publication
+      title='Correlated Proxies: A New Definition and Improved Mitigation for Reward Hacking'
+      authors={['Cassidy Laidlaw', 'Shivam Singhal', 'Anca Dragan']}
+      venue='ICLR 2025 (spotlight)'
+      url='https://arxiv.org/abs/2403.03185'
+    />
+    <Publication
+      title='Iterative Label Refinement Matters More than Preference Optimization under Weak Supervision'
+      authors={['Yaowen Ye*', 'Cassidy Laidlaw*', 'Jacob Steinhardt']}
+      venue='ICLR 2025 (spotlight)'
+      url='https://arxiv.org/abs/2501.07886'
+    />
+    <Publication
+      title='The Effective Horizon Explains Deep RL Performance in Stochastic Environments'
+      authors={['Cassidy Laidlaw', 'Banghua Zhu', 'Stuart Russell', 'Anca Dragan']}
+      venue='ICLR 2024 (spotlight)'
+      url='https://arxiv.org/abs/2312.08369'
+    />
+    <Publication
+      title='Distributional Preference Learning: Understanding and Accounting for Hidden Context in RLHF'
+      authors={['Anand Siththaranjan*', 'Cassidy Laidlaw*', 'Dylan Hadfield-Menell']}
+      venue='ICLR 2024'
+      url='https://arxiv.org/abs/2312.08358'
+    />
+    <Publication
+      title='Bridging RL Theory and Practice with the Effective Horizon'
+      authors={['Cassidy Laidlaw', 'Stuart Russell', 'Anca Dragan']}
+      venue='NeurIPS 2023 (oral)'
+      url='https://arxiv.org/abs/2304.09853'
+    />
+    <Publication
       title='The Boltzmann Policy Distribution: Accounting for Systematic Suboptimality in Human Models'
       authors={['Cassidy Laidlaw', 'Anca Dragan']}
       venue='ICLR 2022'
@@ -382,7 +413,7 @@ const Publications = () => (
     <Publication
       title='Uncertain Decisions Facilitate Better Preference Learning'
       authors={['Cassidy Laidlaw', 'Stuart Russell']}
-      venue='NeurIPS 2021 (spotlight, given to ~12% of accepted papers)'
+      venue='NeurIPS 2021 (spotlight)'
       url='https://papers.nips.cc/paper/2021/hash/7f141cf8e7136ce8701dc6636c2a6fe4-Abstract.html'
     />
     <Publication
@@ -483,8 +514,6 @@ export default function Resume(props: Props) {
       <Publications />
       <ResearchExperience {...props} />
       <ServiceExperience {...props} />
-    </Page>
-    <Page {...props} style={styles.page}>
       <Awards {...props} />
     </Page>
     </>

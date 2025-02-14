@@ -14,6 +14,9 @@ Font.register(`${__dirname}/fonts/Open_Sans/OpenSans-Italic.ttf`, {
 Font.register(`${__dirname}/fonts/Open_Sans/OpenSans-Bold.ttf`, {
   family: 'Open Sans Bold',
 });
+Font.register(`${__dirname}/fonts/Open_Sans/OpenSans-BoldItalic.ttf`, {
+  family: 'Open Sans Bold Italic',
+});
 Font.register(`${__dirname}/fonts/georgia/Georgia Regular.ttf`, {
   family: 'Georgia',
 });

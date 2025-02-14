@@ -8,6 +8,7 @@ import theme from './theme';
 type Props = {
   title: string,
   children: React.Node,
+  noColon?: boolean,
 };
 
 export default function Experience(props: Props) {
@@ -15,7 +16,7 @@ export default function Experience(props: Props) {
     <View style={styles.container} wrap={false}>
       <Text style={theme.fonts.detail.regular}>
         <Text style={theme.fonts.body.bold}>
-          {props.title}{props.children && ': '}
+          {props.title}{props.children && !props.noColon && ': '}
         </Text>
         {props.children}
       </Text>
